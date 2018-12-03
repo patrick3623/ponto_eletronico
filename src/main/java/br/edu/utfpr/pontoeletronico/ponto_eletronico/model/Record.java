@@ -1,6 +1,5 @@
 package br.edu.utfpr.pontoeletronico.ponto_eletronico.model;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,7 +26,7 @@ public class Record {
 	private String note;
 
 	@JoinColumn(name = "idUser")
-	@ManyToOne(optional = true, cascade = CascadeType.ALL)
+	@ManyToOne
 	private User user;
 
 	public Record() {

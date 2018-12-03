@@ -25,13 +25,13 @@
 			th:action="@{/u/registros}">
 				<div class="row">
 					<div class="input-field col s6">
-						<input type="text" name="date" th:field="*{date}"
+						<input type="datetime-local" name="date" th:field="*{date}"
 							th:required="required" />
-							<label for="date" class="active">Date</label>
+							<label for="date" class="active">Data</label>
 					</div>
 					<div class="input-field col s6">
 						<input type="text" name="note" th:field="*{note}" th:required="required" />
-						<label for="note" class="active">Note</label>
+						<label for="note" class="active">Nota</label>
 					</div>
 				</div>
 				<div class="row">

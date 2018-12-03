@@ -29,10 +29,20 @@
 							<label for="name" class="active">Id</label>
 					</div>
 					<div class="input-field col s6">
-						<input type="text" value="${record.date}" placeholder="Data" th:field="*{date}" th:required="required"/>
-							<label for="name" class="active">Date</label>
+						<input type="datetime-local" value="${record.date}" th:field="*{date}" th:required="required"/>
+							<label for="date" class="active">Date</label>
 					</div>
 				</div>
+				<div class="row">
+					<div class="input-field col s6">
+						<input type="text" value="${record.note}" placeholder="note" th:field="*{note}" th:required="required"/>
+							<label for="note" class="active">Nota</label>
+					</div>
+					<div class="input-field col s6">
+						<input type="text" value="${record.user.id}" placeholder="id" th:field="*{user.id}" readonly="readonly" th:required="required"/>
+							<label for="user" class="active">Id de Usuário</label>
+					</div>
+					</div>
 				<div class="row">
 					<div class="input-field col s6">
 						<button class="btn waves-effect waves-light" type="submit"
