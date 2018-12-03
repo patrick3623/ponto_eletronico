@@ -23,7 +23,7 @@ public class Record {
 	@NotBlank(message = "Data é uma informação obrigatória.")
 	private String date;
 
-	@Column(nullable = false, length = 45)
+	@Column(nullable = false, length = 85)
 	@NotBlank(message = "Nota é uma informação obrigatória.")
 	private String note;
 
