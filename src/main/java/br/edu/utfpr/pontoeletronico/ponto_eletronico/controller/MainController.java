@@ -10,7 +10,7 @@ public class MainController {
 	@RequestMapping("/")
 	public ModelAndView listar() {
 
-		ModelAndView mv = new ModelAndView("/index");
+		ModelAndView mv = new ModelAndView("index");
 
 		return mv;
 	}
