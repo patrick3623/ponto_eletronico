@@ -30,6 +30,18 @@ public class Record {
 	@ManyToOne(optional = true, cascade = CascadeType.ALL)
 	private User user;
 
+	public Record() {
+
+	}
+
+	public Record(Long id, String date, String note, User user) {
+		super();
+		this.id = id;
+		this.date = date;
+		this.note = note;
+		this.user = user;
+	}
+
 	public Long getId() {
 		return id;
 	}

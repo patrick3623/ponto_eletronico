@@ -23,6 +23,17 @@ public class Acess {
 	// @NotBlank(message = "Nivel é uma informação obrigatória.")
 	private int level;
 
+	public Acess() {
+
+	}
+
+	public Acess(Long id, String name, int level) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.level = level;
+	}
+
 	public Long getId() {
 		return id;
 	}
