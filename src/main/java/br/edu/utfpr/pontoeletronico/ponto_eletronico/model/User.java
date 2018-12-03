@@ -1,23 +1,18 @@
 package br.edu.utfpr.pontoeletronico.ponto_eletronico.model;
 
-import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
-import javax.validation.constraints.NotBlank;
+
+import org.hibernate.validator.constraints.NotBlank;
 
 @Entity(name = "user")
-public class User implements Serializable{
-	
-	private static final long serialVersionUID = 1L;
+public class User {
 	
 	@Id
-	@SequenceGenerator(name = "user_seq", sequenceName = "user_seq")
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_seq")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
 	@Column(nullable = false, length = 45)
@@ -63,10 +58,4 @@ public class User implements Serializable{
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-	
-	
 }

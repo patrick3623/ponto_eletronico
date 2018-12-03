@@ -3,12 +3,12 @@ package br.edu.utfpr.pontoeletronico.ponto_eletronico.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
 
 import br.edu.utfpr.pontoeletronico.ponto_eletronico.model.User;
 import br.edu.utfpr.pontoeletronico.ponto_eletronico.repository.UserRepository;
 
-@Service
+@Repository
 public class UserService {
 	
 	@Autowired

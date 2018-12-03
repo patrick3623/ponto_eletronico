@@ -8,7 +8,7 @@
 <link th:replace="template :: head4"></link>
 <link th:replace="template :: head5"></link>
 <meta th:replace="template :: head6"></meta>
-<title>Usuários</title>
+<title>Niveis de Acesso</title>
 </head>
 <body>
 
@@ -19,9 +19,9 @@
 		<div class="container">
 		<div class="section">
 		<div class="row">
-			<h4>Novo Usuário</h4>
-			<form class="col s12" method="POST" th:object="${user}"
-			th:action="@{/a/usuarios}">
+			<h4>Nivel de Acesso</h4>
+			<form class="col s12" method="POST" th:object="${acess}"
+			th:action="@{/a/niveis-de-acesso}">
 				<div class="row">
 					<div class="input-field col s6">
 						<input type="text" name="name" th:field="*{name}"
@@ -29,14 +29,8 @@
 							<label for="name" class="active">Name</label>
 					</div>
 					<div class="input-field col s6">
-						<input type="text" name="email" th:field="*{email}" th:required="required" />
-						<label for="email" class="active">Email</label>
-					</div>
-				</div>
-				<div class="row">
-					<div class="input-field col s6">
-						<input type="password" name="password" th:field="*{password}" th:required="required" />
-							<label for="password" class="active">Senha</label>
+						<input type="text" name="level" th:field="*{level}" th:required="required" />
+						<label for="level" class="active">Nivel</label>
 					</div>
 				</div>
 				<div class="row">
@@ -57,19 +51,19 @@
 				<tr>
 					<th>ID</th>
 					<th>Nome</th>
-					<th>Email</th>
+					<th>Nivel</th>
 					<th>EDITAR</th>
 					<th>EXCLUIR</th>
 				</tr>
-					<tr th:each="user : ${users}">
-						<td th:text="${user.id}"></td>
-						<td th:text="${user.name}"></td>
-						<td th:text="${user.email}"></td>
+					<tr th:each="acess : ${acesss}">
+						<td th:text="${acess.id}"></td>
+						<td th:text="${acess.name}"></td>
+						<td th:text="${acess.level}"></td>
 						<td><a class="waves-effect waves-light btn"
-							th:href="${'/a/usuarios/editar/' + user}"><i
+							th:href="${'/a/niveis-de-acesso/editar/' + acess}"><i
 								class="material-icons left">edit</i>EDITAR</a></td>
 						<td><a class="waves-effect waves-light btn red"
-							th:href="${'/a/usuarios/deletar/' + user}"><i
+							th:href="${'/a/niveis-de-acesso/deletar/' + acess}"><i
 								class="material-icons left">delete</i>EXCLUIR</a></td>
 					</tr>
 			</table>

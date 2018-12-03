@@ -1,7 +1,5 @@
 package br.edu.utfpr.pontoeletronico.ponto_eletronico.model;
 
-import java.io.Serializable;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,31 +8,58 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
 
-@Entity
-@Table(name = "record")
-public class Record implements Serializable {
-	
-	private static final long serialVersionUID = 1L;
-	
+import org.hibernate.validator.constraints.NotBlank;
+
+@Entity(name = "record")
+public class Record {
+
 	@Id
-	@SequenceGenerator(name = "record_seq", sequenceName = "record_seq")
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "record_seq")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@Column(nullable = false, length = 25)
 	@NotBlank(message = "Data é uma informação obrigatória.")
 	private String date;
-	
+
 	@Column(nullable = false, length = 45)
 	@NotBlank(message = "Nota é uma informação obrigatória.")
 	private String note;
-	
-	 @JoinColumn(name="idUser")
-	 @NotBlank(message = "Nota é uma informação obrigatória.")
-	 @ManyToOne(optional = true, cascade = CascadeType.ALL)
-	 private User user;
+
+	@JoinColumn(name = "idUser")
+	@ManyToOne(optional = true, cascade = CascadeType.ALL)
+	private User user;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
+	}
+
+	public String getNote() {
+		return note;
+	}
+
+	public void setNote(String note) {
+		this.note = note;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 }

@@ -19,23 +19,26 @@
 		<div class="container">
 		<div class="section">
 		<div class="row">
-			<h4>Novo Usuário</h4>
+			<h4>Alterar Usuário</h4>
 			<form class="col s12" method="POST" th:object="${user}"
-			th:action="@{/a/usuarios}">
+			th:action="@{/a/usuarios/alterar}">
 				<div class="row">
 					<div class="input-field col s6">
-						<input type="text" name="name" th:field="*{name}"
-							th:required="required" />
+						<input type="text" value="${user.id}" placeholder="Id" th:field="*{id}" readonly="readonly" th:required="required"/>
+							<label for="name" class="active">Id</label>
+					</div>
+					<div class="input-field col s6">
+						<input type="text" value="${user.name}" placeholder="Nome" th:field="*{name}" th:required="required"/>
 							<label for="name" class="active">Name</label>
 					</div>
 					<div class="input-field col s6">
-						<input type="text" name="email" th:field="*{email}" th:required="required" />
+						 <input type="text" value="${user.email}" placeholder="email@exemplo.com" th:field="*{email}" th:required="required"/>
 						<label for="email" class="active">Email</label>
 					</div>
 				</div>
 				<div class="row">
 					<div class="input-field col s6">
-						<input type="password" name="password" th:field="*{password}" th:required="required" />
+					<input type="password" value="${user.password}" placeholder="Senha" th:field="*{password}" th:required="required"/>
 							<label for="password" class="active">Senha</label>
 					</div>
 				</div>
@@ -49,36 +52,10 @@
 				</div>
 			</form>
 		</div>
-		<!--/FORM-->
-		<!--RESULTS-->
-		<div class="row">
-			<h4>Usuários Cadastrados</h4>
-			<table>
-				<tr>
-					<th>ID</th>
-					<th>Nome</th>
-					<th>Email</th>
-					<th>EDITAR</th>
-					<th>EXCLUIR</th>
-				</tr>
-					<tr th:each="user : ${users}">
-						<td th:text="${user.id}"></td>
-						<td th:text="${user.name}"></td>
-						<td th:text="${user.email}"></td>
-						<td><a class="waves-effect waves-light btn"
-							th:href="${'/a/usuarios/editar/' + user}"><i
-								class="material-icons left">edit</i>EDITAR</a></td>
-						<td><a class="waves-effect waves-light btn red"
-							th:href="${'/a/usuarios/deletar/' + user}"><i
-								class="material-icons left">delete</i>EXCLUIR</a></td>
-					</tr>
-			</table>
-			<br></br>
-		</div>
 		</div>
 		</div>
 		</main>
-	<!--/RESULTS-->
+		<!--/FORM-->
 	<div th:replace="template :: footer"></div>
 	<div th:replace="template :: script"></div>
 </body>

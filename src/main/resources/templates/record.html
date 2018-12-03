@@ -8,7 +8,7 @@
 <link th:replace="template :: head4"></link>
 <link th:replace="template :: head5"></link>
 <meta th:replace="template :: head6"></meta>
-<title>Usuários</title>
+<title>Registros</title>
 </head>
 <body>
 
@@ -19,26 +19,28 @@
 		<div class="container">
 		<div class="section">
 		<div class="row">
-			<h4>Novo Usuário</h4>
-			<form class="col s12" method="POST" th:object="${user}"
-			th:action="@{/a/usuarios}">
+			<h4>Novo Registro</h4>
+			<form class="col s12" method="POST" th:object="${record}"
+			th:action="@{/u/registros}">
 				<div class="row">
 					<div class="input-field col s6">
-						<input type="text" name="name" th:field="*{name}"
+						<input type="text" name="date" th:field="*{date}"
 							th:required="required" />
-							<label for="name" class="active">Name</label>
+							<label for="date" class="active">Date</label>
 					</div>
 					<div class="input-field col s6">
-						<input type="text" name="email" th:field="*{email}" th:required="required" />
-						<label for="email" class="active">Email</label>
+						<input type="text" name="note" th:field="*{note}" th:required="required" />
+						<label for="note" class="active">Note</label>
 					</div>
 				</div>
 				<div class="row">
 					<div class="input-field col s6">
-						<input type="password" name="password" th:field="*{password}" th:required="required" />
-							<label for="password" class="active">Senha</label>
+						<select class="browser-default" name="user">
+						<option value="" th:disabled="disabled" th:selected="selected">Usuários</option>
+						<option th:each="user : ${users}" th:value="${user.id}" th:text="${user.name}"></option>
+				</select>
 					</div>
-				</div>
+					</div>
 				<div class="row">
 					<div class="input-field col s6">
 						<button class="btn waves-effect waves-light" type="submit"
@@ -52,24 +54,26 @@
 		<!--/FORM-->
 		<!--RESULTS-->
 		<div class="row">
-			<h4>Usuários Cadastrados</h4>
+			<h4>Registros Cadastrados</h4>
 			<table>
 				<tr>
 					<th>ID</th>
-					<th>Nome</th>
-					<th>Email</th>
+					<th>Data</th>
+					<th>Nota</th>
+					<th>Usuário</th>
 					<th>EDITAR</th>
 					<th>EXCLUIR</th>
 				</tr>
-					<tr th:each="user : ${users}">
-						<td th:text="${user.id}"></td>
-						<td th:text="${user.name}"></td>
-						<td th:text="${user.email}"></td>
+					<tr th:each="record : ${records}">
+						<td th:text="${record.id}"></td>
+						<td th:text="${record.date}"></td>
+						<td th:text="${record.note}"></td>
+						<td th:text="${record.user.name}"></td>
 						<td><a class="waves-effect waves-light btn"
-							th:href="${'/a/usuarios/editar/' + user}"><i
+							th:href="${'/u/registros/editar/' + record}"><i
 								class="material-icons left">edit</i>EDITAR</a></td>
 						<td><a class="waves-effect waves-light btn red"
-							th:href="${'/a/usuarios/deletar/' + user}"><i
+							th:href="${'/u/registros/deletar/' + record}"><i
 								class="material-icons left">delete</i>EXCLUIR</a></td>
 					</tr>
 			</table>
