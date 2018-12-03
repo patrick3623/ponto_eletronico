@@ -20,7 +20,7 @@
 	<header th:fragment="header">
 	<nav class="yellow darken-3" role="navigation">
 		<div class="nav-wrapper container">
-			<a href="#" th:href="@{/principal}" class="brand-logo">Meu Ponto</a>
+			<a href="#" th:href="@{/}" class="brand-logo">Meu Ponto</a>
 			<ul id="nav-mobile" class="right hide-on-med-and-down">
 				<li><a href="#" th:href="@{/a/usuarios}">Usuários</a></li>
 				<li><a href="#" th:href="@{/a/niveis-de-acesso}">Niveis De Acesso</a></li>
@@ -36,18 +36,6 @@
 	</nav>
 	</header>
 	<!--/NAV-->
-	<main>
-	<div class="container">
-		<div class="section">
-	<div class="row">
-		<h3>Sistema de Ponto Eletrônico <i class="material-icons large">fingerprint</i>
-		</h3>
-		<img src="../static/assets/img/utfpr.jpg" th:src="@{/assets/img/utfpr.jpg}" id="utfpr-banner"
-			class=" img-responsive grey darken-1" height="350px" />
-			</div>
-			</div>
-			</div>
-	</main>
 	<!--FOOTER-->
 	<footer class="page-footer yellow darken-3" th:fragment="footer">
 		<div class="container">

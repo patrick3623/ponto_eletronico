@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta th:replace="template :: head1"></meta>
+<meta th:replace="template :: head2"></meta>
+<link th:replace="template :: head3"></link>
+<link th:replace="template :: head4"></link>
+<link th:replace="template :: head5"></link>
+<meta th:replace="template :: head6"></meta>
+<title>Niveis de Acesso</title>
+</head>
+<body>
+
+	<div th:replace="template :: header"></div>
+	<main>
+	<div class="container">
+		<div class="section">
+	<div class="row">
+		<h3>Sistema de Ponto Eletrônico <i class="material-icons large">fingerprint</i>
+		</h3>
+		<img src="../static/assets/img/utfpr.jpg" th:src="@{/assets/img/utfpr.jpg}" id="utfpr-banner"
+			class=" img-responsive grey darken-1" height="350px" />
+			</div>
+			</div>
+			</div>
+	</main>
+	<div th:replace="template :: footer"></div>
+	<div th:replace="template :: script"></div>
+</body>
+</html>
