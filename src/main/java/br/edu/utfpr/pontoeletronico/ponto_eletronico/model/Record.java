@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import org.hibernate.validator.constraints.NotBlank;
 
 @Entity(name = "record")
@@ -27,6 +29,7 @@ public class Record {
 
 	@JoinColumn(name = "idUser")
 	@ManyToOne
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	private User user;
 
 	public Record() {
