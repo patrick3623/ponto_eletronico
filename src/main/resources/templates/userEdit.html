@@ -1,63 +1,63 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
 <head>
-<meta th:replace="template :: head1"></meta>
-<meta th:replace="template :: head2"></meta>
-<link th:replace="template :: head3"></link>
-<link th:replace="template :: head4"></link>
-<link th:replace="template :: head5"></link>
-<meta th:replace="template :: head6"></meta>
-<link th:replace="template :: head7"></link>
-<title>Editar Usuário</title>
+    <meta th:replace="template :: head1"></meta>
+    <meta th:replace="template :: head2"></meta>
+    <link th:replace="template :: head3"></link>
+    <link th:replace="template :: head4"></link>
+    <link th:replace="template :: head5"></link>
+    <meta th:replace="template :: head6"></meta>
+    <link th:replace="template :: head7"></link>
+    <title>Editar Usuário</title>
 </head>
+
 <body>
 
-	<div th:replace="template :: header"></div>
-	
-	<main>
-	<!--FORM-->
-		<div class="container">
-		<div class="section">
-		<div class="row">
-			<h4>Alterar Usuário</h4>
-			<form class="col s12" method="POST" th:object="${user}"
-			th:action="@{/a/usuarios/alterar}">
-				<div class="row">
-					<div class="input-field col s6">
-						<input type="text" value="${user.id}" placeholder="Id" th:field="*{id}" readonly="readonly" th:required="required"/>
-							<label for="name" class="active">Id</label>
-					</div>
-					<div class="input-field col s6">
-						<input type="text" value="${user.name}" placeholder="Nome" th:field="*{name}" th:required="required"/>
-							<label for="name" class="active">Name</label>
-					</div>
-					<div class="input-field col s6">
-						 <input type="text" value="${user.email}" placeholder="email@exemplo.com" th:field="*{email}" th:required="required"/>
-						<label for="email" class="active">Email</label>
-					</div>
-				</div>
-				<div class="row">
-					<div class="input-field col s6">
-					<input type="password" value="${user.password}" placeholder="Senha" th:field="*{password}" th:required="required"/>
-							<label for="password" class="active">Senha</label>
-					</div>
-				</div>
-				<div class="row">
-					<div class="input-field col s6">
-						<button class="btn waves-effect waves-light" type="submit"
-							name="action">
-							ADICIONAR <i class="material-icons right">send</i>
-						</button>
-					</div>
-				</div>
-			</form>
-		</div>
-		</div>
-		</div>
-		</main>
-		<!--/FORM-->
-	<div th:replace="template :: footer"></div>
-	<div th:replace="template :: script"></div>
+    <div th:replace="template :: header"></div>
+
+    <main>
+        <!--FORM-->
+        <div class="container">
+            <div class="section">
+                <div class="row">
+                    <h4>Alterar Usuário</h4>
+                    <form class="col s12" method="POST" th:object="${user}" th:action="@{/a/usuarios/alterar}">
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input type="text" value="${user.id}" placeholder="Id" th:field="*{id}" readonly="readonly" th:required="required" />
+                                <label for="name" class="active">Id</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input type="text" value="${user.name}" placeholder="Nome" th:field="*{name}" th:required="required" />
+                                <label for="name" class="active">Name</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input type="text" value="${user.email}" placeholder="email@exemplo.com" th:field="*{email}" th:required="required" />
+                                <label for="email" class="active">Email</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input type="password" value="${user.password}" placeholder="Senha" th:field="*{password}" th:required="required" />
+                                <label for="password" class="active">Senha</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <button class="btn waves-effect waves-light" type="submit" name="action">
+                                    ALTERAR <i class="material-icons right">send</i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!--/FORM-->
+    <div th:replace="template :: footer"></div>
+    <div th:replace="template :: script"></div>
 </body>
+
 </html>

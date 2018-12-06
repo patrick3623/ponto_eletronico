@@ -1,12 +1,12 @@
 package br.edu.utfpr.pontoeletronico.ponto_eletronico.model;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
@@ -19,11 +19,11 @@ public class Record {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(nullable = false, length = 25)
+	@Size(max = 25, message = "Formato inválido, máximo de 25 caracteres.")
 	@NotBlank(message = "Data é uma informação obrigatória.")
 	private String date;
 
-	@Column(nullable = false, length = 85)
+	@Size(max = 65, message = "Formato inválido, máximo de 65 caracteres.")
 	@NotBlank(message = "Nota é uma informação obrigatória.")
 	private String note;
 

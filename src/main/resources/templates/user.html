@@ -1,86 +1,83 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
 <head>
-<meta th:replace="template :: head1"></meta>
-<meta th:replace="template :: head2"></meta>
-<link th:replace="template :: head3"></link>
-<link th:replace="template :: head4"></link>
-<link th:replace="template :: head5"></link>
-<meta th:replace="template :: head6"></meta>
-<link th:replace="template :: head7"></link>
-<title>Usuários</title>
+    <meta th:replace="template :: head1"></meta>
+    <meta th:replace="template :: head2"></meta>
+    <link th:replace="template :: head3"></link>
+    <link th:replace="template :: head4"></link>
+    <link th:replace="template :: head5"></link>
+    <meta th:replace="template :: head6"></meta>
+    <link th:replace="template :: head7"></link>
+    <title>Usuários</title>
 </head>
+
 <body>
 
-	<div th:replace="template :: header"></div>
-	
-	<main>
-	<!--FORM-->
-		<div class="container">
-		<div class="section">
-		<div class="row">
-			<h4>Novo Usuário</h4>
-			<form class="col s12" method="POST" th:object="${user}"
-			th:action="@{/a/usuarios}">
-				<div class="row">
-					<div class="input-field col s6">
-						<input type="text" name="name" th:field="*{name}"
-							th:required="required" />
-							<label for="name" class="active">Name</label>
-					</div>
-					<div class="input-field col s6">
-						<input type="text" name="email" th:field="*{email}" th:required="required" />
-						<label for="email" class="active">Email</label>
-					</div>
-				</div>
-				<div class="row">
-					<div class="input-field col s6">
-						<input type="password" name="password" th:field="*{password}" th:required="required" />
-							<label for="password" class="active">Senha</label>
-					</div>
-				</div>
-				<div class="row">
-					<div class="input-field col s6">
-						<button class="btn waves-effect waves-light" type="submit"
-							name="action">
-							ADICIONAR <i class="material-icons right">send</i>
-						</button>
-					</div>
-				</div>
-			</form>
-		</div>
-		<!--/FORM-->
-		<!--RESULTS-->
-		<div class="row">
-			<h4>Usuários Cadastrados</h4>
-			<table class="highlight responsive-table">
-				<tr>
-					<th>ID</th>
-					<th>Nome</th>
-					<th>Email</th>
-					<th>EDITAR</th>
-					<th>EXCLUIR</th>
-				</tr>
-					<tr th:each="user : ${users}">
-						<td th:text="${user.id}"></td>
-						<td th:text="${user.name}"></td>
-						<td th:text="${user.email}"></td>
-						<td><a class="waves-effect waves-light btn"
-							th:href="${'/a/usuarios/editar/' + user}"><i
+    <div th:replace="template :: header"></div>
+
+    <main>
+        <!--FORM-->
+        <div class="container">
+            <div class="section">
+                <div class="row">
+                    <h4>Novo Usuário</h4>
+                    <form class="col s12" method="POST" th:object="${user}" th:action="@{/a/usuarios}">
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input type="text" name="name" th:field="*{name}" th:required="required" />
+                                <label for="name" class="active">Name</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input type="text" name="email" th:field="*{email}" th:required="required" />
+                                <label for="email" class="active">Email</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input type="password" name="password" th:field="*{password}" th:required="required" />
+                                <label for="password" class="active">Senha</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <button class="btn waves-effect waves-light" type="submit" name="action">
+                                    ADICIONAR <i class="material-icons right">send</i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!--/FORM-->
+                <!--RESULTS-->
+                <div class="row">
+                    <h4>Usuários Cadastrados</h4>
+                    <table class="highlight responsive-table">
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>Email</th>
+                            <th>EDITAR</th>
+                            <th>EXCLUIR</th>
+                        </tr>
+                        <tr th:each="user : ${users}">
+                            <td th:text="${user.id}"></td>
+                            <td th:text="${user.name}"></td>
+                            <td th:text="${user.email}"></td>
+                            <td><a class="waves-effect waves-light btn" th:href="${'/a/usuarios/editar/' + user}"><i
 								class="material-icons left">edit</i>EDITAR</a></td>
-						<td><a class="waves-effect waves-light btn red"
-							th:href="${'/a/usuarios/deletar/' + user}"><i
+                            <td><a class="waves-effect waves-light btn red" th:href="${'/a/usuarios/deletar/' + user}"><i
 								class="material-icons left">delete</i>EXCLUIR</a></td>
-					</tr>
-			</table>
-			<br></br>
-		</div>
-		</div>
-		</div>
-		</main>
-	<!--/RESULTS-->
-	<div th:replace="template :: footer"></div>
-	<div th:replace="template :: script"></div>
+                        </tr>
+                    </table>
+                    <br></br>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!--/RESULTS-->
+    <div th:replace="template :: footer"></div>
+    <div th:replace="template :: script"></div>
 </body>
+
 </html>

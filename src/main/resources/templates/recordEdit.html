@@ -1,63 +1,63 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
 <head>
-<meta th:replace="template :: head1"></meta>
-<meta th:replace="template :: head2"></meta>
-<link th:replace="template :: head3"></link>
-<link th:replace="template :: head4"></link>
-<link th:replace="template :: head5"></link>
-<meta th:replace="template :: head6"></meta>
-<link th:replace="template :: head7"></link>
-<title>Editar Registro</title>
+    <meta th:replace="template :: head1"></meta>
+    <meta th:replace="template :: head2"></meta>
+    <link th:replace="template :: head3"></link>
+    <link th:replace="template :: head4"></link>
+    <link th:replace="template :: head5"></link>
+    <meta th:replace="template :: head6"></meta>
+    <link th:replace="template :: head7"></link>
+    <title>Editar Registro</title>
 </head>
+
 <body>
 
-	<div th:replace="template :: header"></div>
-	
-	<main>
-	<!--FORM-->
-		<div class="container">
-		<div class="section">
-		<div class="row">
-			<h4>Alterar Registro</h4>
-			<form class="col s12" method="POST" th:object="${record}"
-			th:action="@{/u/registros/alterar}">
-				<div class="row">
-					<div class="input-field col s6">
-						<input type="text" value="${record.id}" placeholder="Id" th:field="*{id}" readonly="readonly" th:required="required"/>
-							<label for="name" class="active">Id</label>
-					</div>
-					<div class="input-field col s6">
-						<input type="datetime-local" value="${record.date}" th:field="*{date}" th:required="required"/>
-							<label for="date" class="active">Date</label>
-					</div>
-				</div>
-				<div class="row">
-					<div class="input-field col s6">
-						<input type="text" value="${record.note}" placeholder="note" th:field="*{note}" th:required="required"/>
-							<label for="note" class="active">Nota</label>
-					</div>
-					<div class="input-field col s6">
-						<input type="text" value="${record.user.id}" placeholder="id" th:field="*{user.id}" readonly="readonly" th:required="required"/>
-							<label for="user" class="active">Id de Usuário</label>
-					</div>
-					</div>
-				<div class="row">
-					<div class="input-field col s6">
-						<button class="btn waves-effect waves-light" type="submit"
-							name="action">
-							ALTERAR <i class="material-icons right">send</i>
-						</button>
-					</div>
-				</div>
-			</form>
-		</div>
-		</div>
-		</div>
-		</main>
-		<!--/FORM-->
-	<div th:replace="template :: footer"></div>
-	<div th:replace="template :: script"></div>
+    <div th:replace="template :: header"></div>
+
+    <main>
+        <!--FORM-->
+        <div class="container">
+            <div class="section">
+                <div class="row">
+                    <h4>Alterar Registro</h4>
+                    <form class="col s12" method="POST" th:object="${record}" th:action="@{/u/registros/alterar}">
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input type="text" value="${record.id}" placeholder="Id" th:field="*{id}" readonly="readonly" th:required="required" />
+                                <label for="name" class="active">Id</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input type="datetime-local" value="${record.date}" th:field="*{date}" th:required="required" />
+                                <label for="date" class="active">Date</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input type="text" value="${record.note}" placeholder="note" th:field="*{note}" th:required="required" />
+                                <label for="note" class="active">Nota</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input type="text" value="${record.user.id}" placeholder="id" th:field="*{user.id}" readonly="readonly" th:required="required" />
+                                <label for="user" class="active">Id de Usuário</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <button class="btn waves-effect waves-light" type="submit" name="action">
+                                    ALTERAR <i class="material-icons right">send</i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!--/FORM-->
+    <div th:replace="template :: footer"></div>
+    <div th:replace="template :: script"></div>
 </body>
+
 </html>

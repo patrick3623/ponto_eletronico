@@ -1,80 +1,77 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
 <head>
-<meta th:replace="template :: head1"></meta>
-<meta th:replace="template :: head2"></meta>
-<link th:replace="template :: head3"></link>
-<link th:replace="template :: head4"></link>
-<link th:replace="template :: head5"></link>
-<meta th:replace="template :: head6"></meta>
-<link th:replace="template :: head7"></link>
-<title>Niveis de Acesso</title>
+    <meta th:replace="template :: head1"></meta>
+    <meta th:replace="template :: head2"></meta>
+    <link th:replace="template :: head3"></link>
+    <link th:replace="template :: head4"></link>
+    <link th:replace="template :: head5"></link>
+    <meta th:replace="template :: head6"></meta>
+    <link th:replace="template :: head7"></link>
+    <title>Niveis de Acesso</title>
 </head>
+
 <body>
 
-	<div th:replace="template :: header"></div>
-	
-	<main>
-	<!--FORM-->
-		<div class="container">
-		<div class="section">
-		<div class="row">
-			<h4>Nivel de Acesso</h4>
-			<form class="col s12" method="POST" th:object="${acess}"
-			th:action="@{/a/niveis-de-acesso}">
-				<div class="row">
-					<div class="input-field col s6">
-						<input type="text" name="name" th:field="*{name}"
-							th:required="required" />
-							<label for="name" class="active">Name</label>
-					</div>
-					<div class="input-field col s6">
-						<input type="text" name="level" th:field="*{level}" th:required="required" />
-						<label for="level" class="active">Nivel</label>
-					</div>
-				</div>
-				<div class="row">
-					<div class="input-field col s6">
-						<button class="btn waves-effect waves-light" type="submit"
-							name="action">
-							ADICIONAR <i class="material-icons right">send</i>
-						</button>
-					</div>
-				</div>
-			</form>
-		</div>
-		<!--/FORM-->
-		<!--RESULTS-->
-		<div class="row">
-			<h4>Niveis de Acesso</h4>
-			<table class="highlight responsive-table">
-				<tr>
-					<th>ID</th>
-					<th>Nome</th>
-					<th>Nivel</th>
-					<th>EDITAR</th>
-					<th>EXCLUIR</th>
-				</tr>
-					<tr th:each="acess : ${acesss}">
-						<td th:text="${acess.id}"></td>
-						<td th:text="${acess.name}"></td>
-						<td th:text="${acess.level}"></td>
-						<td><a class="waves-effect waves-light btn"
-							th:href="${'/a/niveis-de-acesso/editar/' + acess}"><i
+    <div th:replace="template :: header"></div>
+
+    <main>
+        <!--FORM-->
+        <div class="container">
+            <div class="section">
+                <div class="row">
+                    <h4>Nivel de Acesso</h4>
+                    <form class="col s12" method="POST" th:object="${acess}" th:action="@{/a/niveis-de-acesso}">
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input type="text" name="name" th:field="*{name}" th:required="required" />
+                                <label for="name" class="active">Name</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input type="text" name="level" th:field="*{level}" th:required="required" />
+                                <label for="level" class="active">Nivel</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <button class="btn waves-effect waves-light" type="submit" name="action">
+                                    ADICIONAR <i class="material-icons right">send</i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!--/FORM-->
+                <!--RESULTS-->
+                <div class="row">
+                    <h4>Niveis de Acesso</h4>
+                    <table class="highlight responsive-table">
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>Nivel</th>
+                            <th>EDITAR</th>
+                            <th>EXCLUIR</th>
+                        </tr>
+                        <tr th:each="acess : ${acesss}">
+                            <td th:text="${acess.id}"></td>
+                            <td th:text="${acess.name}"></td>
+                            <td th:text="${acess.level}"></td>
+                            <td><a class="waves-effect waves-light btn" th:href="${'/a/niveis-de-acesso/editar/' + acess}"><i
 								class="material-icons left">edit</i>EDITAR</a></td>
-						<td><a class="waves-effect waves-light btn red"
-							th:href="${'/a/niveis-de-acesso/deletar/' + acess}"><i
+                            <td><a class="waves-effect waves-light btn red" th:href="${'/a/niveis-de-acesso/deletar/' + acess}"><i
 								class="material-icons left">delete</i>EXCLUIR</a></td>
-					</tr>
-			</table>
-			<br></br>
-		</div>
-		</div>
-		</div>
-		</main>
-	<!--/RESULTS-->
-	<div th:replace="template :: footer"></div>
-	<div th:replace="template :: script"></div>
+                        </tr>
+                    </table>
+                    <br></br>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!--/RESULTS-->
+    <div th:replace="template :: footer"></div>
+    <div th:replace="template :: script"></div>
 </body>
+
 </html>

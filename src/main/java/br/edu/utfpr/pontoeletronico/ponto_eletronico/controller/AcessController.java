@@ -10,20 +10,20 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.edu.utfpr.pontoeletronico.ponto_eletronico.model.Acess;
-import br.edu.utfpr.pontoeletronico.ponto_eletronico.repository.AcessRepository;
+import br.edu.utfpr.pontoeletronico.ponto_eletronico.service.AcessService;
 
 @Controller
 public class AcessController {
 
 	@Autowired
-	private AcessRepository acessRepository;
+	private AcessService acessService;
 
 	@RequestMapping("/a/niveis-de-acesso")
 	public ModelAndView listar() {
 
 		ModelAndView mv = new ModelAndView("acess");
 
-		mv.addObject("acesss", acessRepository.findAll());
+		mv.addObject("acesss", acessService.findAll());
 
 		mv.addObject(new Acess());
 
@@ -37,7 +37,7 @@ public class AcessController {
 			return "redirect:/a/niveis-de-acesso";
 		}
 
-		this.acessRepository.save(acess);
+		this.acessService.save(acess);
 
 		return "redirect:/a/niveis-de-acesso";
 	}
@@ -45,7 +45,7 @@ public class AcessController {
 	@RequestMapping("/a/niveis-de-acesso/deletar/{id}")
 	public String excluir(@PathVariable Long id) {
 
-		this.acessRepository.delete(id);
+		this.acessService.delete(id);
 
 		return "redirect:/a/niveis-de-acesso";
 	}
@@ -65,9 +65,9 @@ public class AcessController {
 
 		Acess acessNew = acess;
 
-		this.acessRepository.delete(acess.getId());
+		this.acessService.delete(acess.getId());
 
-		this.acessRepository.save(acessNew);
+		this.acessService.save(acessNew);
 
 		return "redirect:/a/niveis-de-acesso";
 	}

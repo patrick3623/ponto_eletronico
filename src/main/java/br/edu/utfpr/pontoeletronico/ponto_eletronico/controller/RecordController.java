@@ -11,25 +11,25 @@ import org.springframework.web.servlet.ModelAndView;
 
 import br.edu.utfpr.pontoeletronico.ponto_eletronico.model.Record;
 import br.edu.utfpr.pontoeletronico.ponto_eletronico.model.User;
-import br.edu.utfpr.pontoeletronico.ponto_eletronico.repository.RecordRepository;
-import br.edu.utfpr.pontoeletronico.ponto_eletronico.repository.UserRepository;
+import br.edu.utfpr.pontoeletronico.ponto_eletronico.service.RecordService;
+import br.edu.utfpr.pontoeletronico.ponto_eletronico.service.UserService;
 
 @Controller
 public class RecordController {
 
 	@Autowired
-	private RecordRepository recordRepository;
+	private RecordService recordService;
 
 	@Autowired
-	private UserRepository userRepository;
+	private UserService userService;
 
 	@RequestMapping("/u/registros")
 	public ModelAndView listar() {
 
 		ModelAndView mv = new ModelAndView("record");
 
-		mv.addObject("records", recordRepository.findAll());
-		mv.addObject("users", userRepository.findAll());
+		mv.addObject("records", recordService.findAll());
+		mv.addObject("users", userService.findAll());
 
 		mv.addObject(new Record());
 		mv.addObject(new User());
@@ -44,7 +44,7 @@ public class RecordController {
 			return "redirect:/u/registros";
 		}
 
-		this.recordRepository.save(record);
+		this.recordService.save(record);
 
 		return "redirect:/u/registros";
 	}
@@ -52,7 +52,7 @@ public class RecordController {
 	@RequestMapping("/u/registros/deletar/{id}")
 	public String excluir(@PathVariable Long id) {
 
-		this.recordRepository.delete(id);
+		this.recordService.delete(id);
 
 		return "redirect:/u/registros";
 	}
@@ -72,9 +72,9 @@ public class RecordController {
 
 		Record recordnew = record;
 
-		this.recordRepository.delete(record.getId());
+		this.recordService.delete(record.getId());
 
-		this.recordRepository.save(recordnew);
+		this.recordService.save(recordnew);
 
 		return "redirect:/u/registros";
 	}

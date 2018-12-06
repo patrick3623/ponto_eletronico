@@ -1,72 +1,72 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
 <head>
-<meta charset="UTF-8" th:fragment="head1"/>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" th:fragment="head2"/>
-<!--Import Google Icon Font-->
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-	rel="stylesheet" th:fragment="head3"/>
-<!--Import materialize.css-->
- <!-- Compiled and minified CSS -->
-<link type="text/css" rel="stylesheet" href="../static/assets/css/template.css" th:href="@{/assets/css/template.css}" th:fragment="head5"/>
-<link type="text/css" rel="stylesheet" href="../static/assets/css/materialize.min.css" media="screen,projection" th:href="@{/assets/css/materialize.min.css}" th:fragment="head4"/>
-<!--Let browser know website is optimized for mobile-->
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" th:fragment="head6"/>
-<link rel="shortcut icon" type="image/x-icon" href="../static/assets/img/favicon.ico" th:href="@{/assets/img/favicon.ico}" th:fragment="head7"/>
-<title>Menu</title>
+    <meta charset="UTF-8" th:fragment="head1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" th:fragment="head2" />
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" th:fragment="head3" />
+    <!--Import materialize.css-->
+    <!-- Compiled and minified CSS -->
+    <link type="text/css" rel="stylesheet" href="../static/assets/css/template.css" th:href="@{/assets/css/template.css}" th:fragment="head5" />
+    <link type="text/css" rel="stylesheet" href="../static/assets/css/materialize.min.css" media="screen,projection" th:href="@{/assets/css/materialize.min.css}" th:fragment="head4" />
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" th:fragment="head6" />
+    <link rel="shortcut icon" type="image/x-icon" href="../static/assets/img/favicon.ico" th:href="@{/assets/img/favicon.ico}" th:fragment="head7" />
+    <title>Menu</title>
 </head>
+
 <body>
-	<!--NAV-->
-	<header th:fragment="header">
-	<nav class="yellow darken-3" role="navigation">
-		<div class="nav-wrapper container">
-			<a href="#" th:href="@{/}" class="brand-logo">Meu Ponto</a>
-			<ul class="right hide-on-med-and-down">
-				<li><a href="#" th:href="@{/a/usuarios}">Usuários</a></li>
-				<li><a href="#" th:href="@{/a/niveis-de-acesso}">Niveis De Acesso</a></li>
-				<li><a href="#" th:href="@{/u/registros}">Registros De Ponto</a></li>
-			</ul>
-			<ul id="nav-mobile" class="sidenav" style="transform: translateX(-105%);">
-        		<li><a href="#" th:href="@{/a/usuarios}">Usuários</a></li>
-				<li><a href="#" th:href="@{/a/niveis-de-acesso}">Niveis De Acesso</a></li>
-				<li><a href="#" th:href="@{/u/registros}">Registros De Ponto</a></li>
-     		</ul>
-     		<a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-		</div>
-	</nav>
-	</header>
-	<!--/NAV-->
-	<!--FOOTER-->
-	<footer class="page-footer yellow darken-3" th:fragment="footer">
-		<div class="container">
-			<div class="row">
-				<div class="col l6 s12">
-					<h5 class="white-text">Meu Ponto</h5>
-					<p class="grey-text text-lighten-4">Sistema de Gerenciamento de
-						Ponto Eletrônico.</p>
-				</div>
-				<div class="col l4 offset-l2 s12">
-					<h5 class="white-text">Páginas</h5>
-					<ul>
-						<li><a class="grey-text text-lighten-3" href="#" th:href="@{/a/usuarios}">Usuários</a></li>
-						<li><a class="grey-text text-lighten-3" href="#" th:href="@{/a/niveis-de-acesso}">Níveis de Acesso</a></li>
-						<li><a class="grey-text text-lighten-3" href="#" th:href="@{/u/registros}">Registros</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-		<div class="footer-copyright">
-			<div class="container"> © 2018 Copyright <a class="grey-text text-lighten-4" href="https://www.patrickweb.tk/">Patrick Ferro Ribeiro</a>
-			</div>
-		</div>
-	</footer>
-	<!--/FOOTER-->
-	<!-- Compiled and minified JavaScript -->
-	<div th:fragment="script">
-	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-	<script type="text/javascript" src="../static/assets/js/materialize.js" th:src="@{/assets/js/materialize.js}"></script>
-	<script type="text/javascript" src="../static/assets/js/init.js" th:src="@{/assets/js/init.js}"></script>
-	</div>
+    <!--NAV-->
+    <header th:fragment="header">
+        <nav class="yellow darken-3" role="navigation">
+            <div class="nav-wrapper container">
+                <a href="#" th:href="@{/}" class="brand-logo">Meu Ponto</a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="#" th:href="@{/a/usuarios}">Usuários</a></li>
+                    <li><a href="#" th:href="@{/a/niveis-de-acesso}">Niveis De Acesso</a></li>
+                    <li><a href="#" th:href="@{/u/registros}">Registros De Ponto</a></li>
+                </ul>
+                <ul id="nav-mobile" class="sidenav" style="transform: translateX(-105%);">
+                    <li><a href="#" th:href="@{/a/usuarios}">Usuários</a></li>
+                    <li><a href="#" th:href="@{/a/niveis-de-acesso}">Niveis De Acesso</a></li>
+                    <li><a href="#" th:href="@{/u/registros}">Registros De Ponto</a></li>
+                </ul>
+                <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            </div>
+        </nav>
+    </header>
+    <!--/NAV-->
+    <!--FOOTER-->
+    <footer class="page-footer yellow darken-3" th:fragment="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Meu Ponto</h5>
+                    <p class="grey-text text-lighten-4">Sistema de Gerenciamento de Ponto Eletrônico.</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Páginas</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="#" th:href="@{/a/usuarios}">Usuários</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#" th:href="@{/a/niveis-de-acesso}">Níveis de Acesso</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#" th:href="@{/u/registros}">Registros</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container"> © 2018 Copyright <a class="grey-text text-lighten-4" href="https://www.patrickweb.tk/">Patrick Ferro Ribeiro</a>
+            </div>
+        </div>
+    </footer>
+    <!--/FOOTER-->
+    <!-- Compiled and minified JavaScript -->
+    <div th:fragment="script">
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="../static/assets/js/materialize.js" th:src="@{/assets/js/materialize.js}"></script>
+        <script type="text/javascript" src="../static/assets/js/init.js" th:src="@{/assets/js/init.js}"></script>
+    </div>
 </body>
+
 </html>

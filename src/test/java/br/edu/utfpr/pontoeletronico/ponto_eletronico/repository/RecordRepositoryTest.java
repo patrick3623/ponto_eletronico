@@ -18,20 +18,22 @@ public class RecordRepositoryTest {
 	@Autowired
 	RecordRepository recordRepository;
 
+	@Autowired
+	UserRepository userRepository;
+
 	public RecordRepositoryTest() {
 
 	}
 
 	@Test
 	public void setUp() throws Exception {
-		Record record = new Record(10L, "01/01/2019", "Olá novo Ano",
-				new User(10L, "Teste One", "teste@teste.com", "teste123mudar1"));
-		Record record2 = new Record(10L, "02/02/2019", "Olá novo Ano dois",
-				new User(10L, "Teste two", "teste@teste.com", "teste123mudar2"));
-		Record record3 = new Record(10L, "03/03/2019", "Olá novo Ano tres",
-				new User(10L, "Teste tree", "teste@teste.com", "teste123mudar3"));
-		Record record4 = new Record(10L, "04/04/2019", "Olá novo Ano quatro",
-				new User(10L, "Teste four", "teste@teste.com", "teste123mudar4"));
+		User user = new User(10L, "Teste One", "teste1@teste.com", "teste123mudar1");
+		userRepository.save(user);
+
+		Record record = new Record(10L, "01/01/2019", "Olá novo Ano", userRepository.findOne(10L));
+		Record record2 = new Record(11L, "02/02/2019", "Olá novo Ano dois", userRepository.findOne(10L));
+		Record record3 = new Record(12L, "03/03/2019", "Olá novo Ano tres", userRepository.findOne(10L));
+		Record record4 = new Record(13L, "04/04/2019", "Olá novo Ano quatro", userRepository.findOne(10L));
 		recordRepository.save(record);
 		recordRepository.save(record2);
 		recordRepository.save(record3);
@@ -40,6 +42,7 @@ public class RecordRepositoryTest {
 
 	@Test
 	public void persist() throws Exception {
+		userRepository.exists(10L);
 		recordRepository.exists(10L);
 		recordRepository.exists(13L);
 	}
@@ -47,5 +50,6 @@ public class RecordRepositoryTest {
 	@Test
 	public void tearDown() throws Exception {
 		recordRepository.deleteAll();
+		userRepository.deleteAll();
 	}
 }

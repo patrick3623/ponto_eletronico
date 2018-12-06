@@ -5,7 +5,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 
 @Entity(name = "user")
@@ -16,14 +18,16 @@ public class User {
 	private Long id;
 
 	@Column(nullable = false, length = 45)
+	@Size(min = 3, max = 45, message = "Formato inválido, no minimo 3 ou máximo 45 letras.")
 	@NotBlank(message = "Nome é uma informação obrigatória.")
 	private String name;
 
-	@Column(nullable = false, length = 80)
+	@Size(min = 5, max = 80, message = "Formato inválido, no minimo 5 ou máximo 80 caracteres.")
+	@Email(message = "O email digitado não é um email válido exemplo@exemplo.com")
 	@NotBlank(message = "Email é uma informação obrigatória.")
 	private String email;
 
-	@Column(nullable = false, length = 20)
+	@Size(min = 5, max = 20, message = "Formato inválido, no minimo 8 ou máximo 20 caracteres.")
 	@NotBlank(message = "Senha é uma informação obrigatória.")
 	private String password;
 

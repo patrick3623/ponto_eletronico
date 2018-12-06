@@ -1,90 +1,87 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
 <head>
-<meta th:replace="template :: head1"></meta>
-<meta th:replace="template :: head2"></meta>
-<link th:replace="template :: head3"></link>
-<link th:replace="template :: head4"></link>
-<link th:replace="template :: head5"></link>
-<meta th:replace="template :: head6"></meta>
-<link th:replace="template :: head7"></link>
-<title>Registros</title>
+    <meta th:replace="template :: head1"></meta>
+    <meta th:replace="template :: head2"></meta>
+    <link th:replace="template :: head3"></link>
+    <link th:replace="template :: head4"></link>
+    <link th:replace="template :: head5"></link>
+    <meta th:replace="template :: head6"></meta>
+    <link th:replace="template :: head7"></link>
+    <title>Registros</title>
 </head>
+
 <body>
 
-	<div th:replace="template :: header"></div>
-	
-	<main>
-	<!--FORM-->
-		<div class="container">
-		<div class="section">
-		<div class="row">
-			<h4>Novo Registro</h4>
-			<form class="col s12" method="POST" th:object="${record}"
-			th:action="@{/u/registros}">
-				<div class="row">
-					<div class="input-field col s6">
-						<input type="datetime-local" name="date" th:field="*{date}"
-							th:required="required" />
-							<label for="date" class="active">Data</label>
-					</div>
-					<div class="input-field col s6">
-						<input type="text" name="note" th:field="*{note}" th:required="required" />
-						<label for="note" class="active">Nota</label>
-					</div>
-				</div>
-				<div class="row">
-					<div class="input-field col s6">
-						<select class="browser-default" name="user">
-						<option value="" th:disabled="disabled" th:selected="selected">Usuários</option>
-						<option th:each="user : ${users}" th:value="${user.id}" th:text="${user.name}"></option>
-				</select>
-					</div>
-					</div>
-				<div class="row">
-					<div class="input-field col s6">
-						<button class="btn waves-effect waves-light" type="submit"
-							name="action">
-							ADICIONAR <i class="material-icons right">send</i>
-						</button>
-					</div>
-				</div>
-			</form>
-		</div>
-		<!--/FORM-->
-		<!--RESULTS-->
-		<div class="row">
-			<h4>Registros Cadastrados</h4>
-			<table class="highlight responsive-table">
-				<tr>
-					<th>ID</th>
-					<th>Data</th>
-					<th>Nota</th>
-					<th>Usuário</th>
-					<th>EDITAR</th>
-					<th>EXCLUIR</th>
-				</tr>
-					<tr th:each="record : ${records}">
-						<td th:text="${record.id}"></td>
-						<td th:text="${record.date}"></td>
-						<td th:text="${record.note}"></td>
-						<td th:text="${record.user.name}"></td>
-						<td><a class="waves-effect waves-light btn"
-							th:href="${'/u/registros/editar/' + record}"><i
+    <div th:replace="template :: header"></div>
+
+    <main>
+        <!--FORM-->
+        <div class="container">
+            <div class="section">
+                <div class="row">
+                    <h4>Novo Registro</h4>
+                    <form class="col s12" method="POST" th:object="${record}" th:action="@{/u/registros}">
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input type="datetime-local" name="date" th:field="*{date}" th:required="required" />
+                                <label for="date" class="active">Data</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input type="text" name="note" th:field="*{note}" th:required="required" />
+                                <label for="note" class="active">Nota</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <select class="browser-default" name="user">
+                                    <option value="" th:disabled="disabled" th:selected="selected">Usuários</option>
+                                    <option th:each="user : ${users}" th:value="${user.id}" th:text="${user.name}"></option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <button class="btn waves-effect waves-light" type="submit" name="action">
+                                    ADICIONAR <i class="material-icons right">send</i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!--/FORM-->
+                <!--RESULTS-->
+                <div class="row">
+                    <h4>Registros Cadastrados</h4>
+                    <table class="highlight responsive-table">
+                        <tr>
+                            <th>ID</th>
+                            <th>Data</th>
+                            <th>Nota</th>
+                            <th>Usuário</th>
+                            <th>EDITAR</th>
+                            <th>EXCLUIR</th>
+                        </tr>
+                        <tr th:each="record : ${records}">
+                            <td th:text="${record.id}"></td>
+                            <td th:text="${record.date}"></td>
+                            <td th:text="${record.note}"></td>
+                            <td th:text="${record.user.name}"></td>
+                            <td><a class="waves-effect waves-light btn" th:href="${'/u/registros/editar/' + record}"><i
 								class="material-icons left">edit</i>EDITAR</a></td>
-						<td><a class="waves-effect waves-light btn red"
-							th:href="${'/u/registros/deletar/' + record}"><i
+                            <td><a class="waves-effect waves-light btn red" th:href="${'/u/registros/deletar/' + record}"><i
 								class="material-icons left">delete</i>EXCLUIR</a></td>
-					</tr>
-			</table>
-			<br></br>
-		</div>
-		</div>
-		</div>
-		</main>
-	<!--/RESULTS-->
-	<div th:replace="template :: footer"></div>
-	<div th:replace="template :: script"></div>
+                        </tr>
+                    </table>
+                    <br></br>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!--/RESULTS-->
+    <div th:replace="template :: footer"></div>
+    <div th:replace="template :: script"></div>
 </body>
+
 </html>

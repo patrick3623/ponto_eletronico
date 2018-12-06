@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta th:replace="template :: head1"></meta>
+    <meta th:replace="template :: head2"></meta>
+    <link th:replace="template :: head3"></link>
+    <link th:replace="template :: head4"></link>
+    <link th:replace="template :: head5"></link>
+    <meta th:replace="template :: head6"></meta>
+    <link th:replace="template :: head7"></link>
+    <title>Erro-404</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="section">
+            <h1 class="yellow-text text-darken-3">Ops Algo Deu Errado!</h1>
+            <img src="../../static/assets/img/giphy.gif" th:src="@{/assets/img/giphy.gif}" id="utfpr-banner" class="responsive-img grey darken-1" height="350px" />
+            <h2 class="red-text">Erro 404</h2>
+            <p>A página solicitada não foi encontrada desculpe.</p>
+            <a href="/">Voltar ao Inicio</a>
+        </div>
+    </div>
+</body>
+
+</html>

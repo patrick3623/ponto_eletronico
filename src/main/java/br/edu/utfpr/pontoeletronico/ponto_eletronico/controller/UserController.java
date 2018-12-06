@@ -10,21 +10,20 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.edu.utfpr.pontoeletronico.ponto_eletronico.model.User;
-import br.edu.utfpr.pontoeletronico.ponto_eletronico.repository.UserRepository;
+import br.edu.utfpr.pontoeletronico.ponto_eletronico.service.UserService;
 
 @Controller
 public class UserController {
 
 	@Autowired
-	private UserRepository userRepository;
-	// private AcessRepository acessRepository;
+	private UserService userService;
 
 	@RequestMapping("/a/usuarios")
 	public ModelAndView listar() {
 
 		ModelAndView mv = new ModelAndView("user");
 
-		mv.addObject("users", userRepository.findAll());
+		mv.addObject("users", userService.findAll());
 		// mv.addObject("acess", acessRepository.findAll());
 
 		mv.addObject(new User());
@@ -40,7 +39,7 @@ public class UserController {
 			return "redirect:/a/usuarios";
 		}
 
-		this.userRepository.save(user);
+		this.userService.save(user);
 
 		return "redirect:/a/usuarios";
 	}
@@ -48,7 +47,7 @@ public class UserController {
 	@RequestMapping("/a/usuarios/deletar/{id}")
 	public String excluir(@PathVariable Long id) {
 
-		this.userRepository.delete(id);
+		this.userService.delete(id);
 
 		return "redirect:/a/usuarios";
 	}
@@ -68,9 +67,9 @@ public class UserController {
 
 		User usernew = user;
 
-		this.userRepository.delete(user.getId());
+		this.userService.delete(user.getId());
 
-		this.userRepository.save(usernew);
+		this.userService.save(usernew);
 
 		return "redirect:/a/usuarios";
 	}
